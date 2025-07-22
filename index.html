@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuesioner ASRS v1.1 (Bahasa Indonesia)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .question-group {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #f9fafb; /* Slightly darker than body background */
+            border-radius: 0.75rem;
+            border: 1px solid #e5e7eb;
+        }
+        .question-group h3 {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        .question-item {
+            margin-bottom: 1rem;
+        }
+        .question-text {
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        .radio-option {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 1.5rem;
+            cursor: pointer;
+        }
+        .radio-option input[type="radio"] {
+            margin-right: 0.5rem;
+            accent-color: #4f46e5; /* Purple accent color */
+        }
+        .radio-option label {
+            color: #4b5563;
+        }
+        .submit-button {
+            background-color: #4f46e5; /* Purple */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+        .submit-button:hover {
+            background-color: #6d28d9; /* Darker purple on hover */
+        }
+        .result-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #ecfdf5; /* Light green for results */
+            border-radius: 1rem;
+            border: 1px solid #d1fae5;
+            color: #065f46;
+        }
+        .result-section h2 {
+            font-weight: 700;
+            color: #047857;
+            margin-bottom: 1rem;
+        }
+        .disclaimer {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #fffbeb; /* Light yellow for disclaimer */
+            border-radius: 0.75rem;
+            border: 1px solid #fde68a;
+            color: #92400e;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="container">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Kuesioner ASRS v1.1 (Bahasa Indonesia)</h1>
+        <p class="text-gray-600 text-center mb-8">
+            Kuesioner ini dirancang untuk membantu Anda mengidentifikasi gejala ADHD pada orang dewasa.
+            Baca setiap pertanyaan dengan cermat dan pilih jawaban yang paling sesuai dengan pengalaman Anda
+            selama enam bulan terakhir.
+        </p>
+
+        <form id="asrsForm">
+            <!-- Part A Questions -->
+            <div class="question-group">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4">Bagian A: Pertanyaan Skrining</h2>
+                <p class="text-gray-600 mb-4">
+                    Pertanyaan-pertanyaan ini sangat penting dalam skrining awal.
+                </p>
+
+                <div class="question-item" data-part="A" data-question-id="A1">
+                    <p class="question-text">1. Seberapa sering Anda mengalami kesulitan menyelesaikan bagian terakhir dari suatu tugas atau proyek, setelah bagian-bagian yang lebih menantang telah selesai?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="A1" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="A1" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="A1" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="A1" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="A1" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="A" data-question-id="A2">
+                    <p class="question-text">2. Seberapa sering Anda mengalami kesulitan untuk tetap fokus pada tugas-tugas yang membosankan atau berulang?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="A2" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="A2" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="A2" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="A2" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="A2" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="A" data-question-id="A3">
+                    <p class="question-text">3. Seberapa sering Anda mengalami kesulitan untuk tetap teratur saat melakukan tugas yang membutuhkan organisasi?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="A3" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="A3" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="A3" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="A3" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="A3" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="A" data-question-id="A4">
+                    <p class="question-text">4. Seberapa sering Anda memiliki masalah dalam mengingat janji atau kewajiban?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="A4" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="A4" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="A4" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="A4" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="A4" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="A" data-question-id="A5">
+                    <p class="question-text">5. Seberapa sering Anda menunda atau menghindari memulai tugas yang membutuhkan banyak pemikiran?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="A5" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="A5" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="A5" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="A5" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="A5" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="A" data-question-id="A6">
+                    <p class="question-text">6. Seberapa sering Anda gelisah atau tidak nyaman dalam situasi di mana Anda diharapkan untuk duduk diam?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="A6" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="A6" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="A6" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="A6" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="A6" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part B Questions -->
+            <div class="question-group mt-8">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4">Bagian B: Gejala Tambahan</h2>
+                <p class="text-gray-600 mb-4">
+                    Pertanyaan-pertanyaan ini memberikan informasi lebih lanjut tentang gejala ADHD.
+                </p>
+
+                <div class="question-item" data-part="B" data-question-id="B7">
+                    <p class="question-text">7. Seberapa sering Anda terlalu banyak bicara dalam situasi sosial?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B7" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B7" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B7" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B7" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B7" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B8">
+                    <p class="question-text">8. Seberapa sering Anda menyelesaikan kalimat orang lain?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B8" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B8" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B8" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B8" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B8" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B9">
+                    <p class="question-text">9. Seberapa sering Anda mengalami kesulitan menunggu giliran dalam situasi di mana giliran diperlukan?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B9" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B9" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B9" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B9" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B9" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B10">
+                    <p class="question-text">10. Seberapa sering Anda menyela orang lain saat mereka berbicara?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B10" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B10" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B10" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B10" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B10" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B11">
+                    <p class="question-text">11. Seberapa sering Anda merasa gelisah atau resah?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B11" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B11" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B11" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B11" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B11" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B12">
+                    <p class="question-text">12. Seberapa sering Anda mengalami kesulitan untuk rileks dan menikmati diri sendiri saat ada waktu luang?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B12" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B12" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B12" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B12" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B12" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B13">
+                    <p class="question-text">13. Seberapa sering Anda merasa seperti Anda didorong oleh motor?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B13" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B13" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B13" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B13" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B13" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B14">
+                    <p class="question-text">14. Seberapa sering Anda menemukan diri Anda berganti pekerjaan atau hobi secara berlebihan?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B14" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B14" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B14" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B14" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B14" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B15">
+                    <p class="question-text">15. Seberapa sering Anda memiliki masalah dengan kontrol emosi Anda?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B15" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B15" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B15" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B15" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B15" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B16">
+                    <p class="question-text">16. Seberapa sering Anda mengalami kesulitan dalam mengelola stres?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B16" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B16" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B16" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B16" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B16" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B17">
+                    <p class="question-text">17. Seberapa sering Anda memiliki masalah dalam mengatur prioritas?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B17" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B17" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B17" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B17" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B17" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+
+                <div class="question-item" data-part="B" data-question-id="B18">
+                    <p class="question-text">18. Seberapa sering Anda memiliki masalah dalam mengelola uang?</p>
+                    <div class="flex flex-wrap gap-2">
+                        <label class="radio-option"><input type="radio" name="B18" value="0" required> Tidak Pernah</label>
+                        <label class="radio-option"><input type="radio" name="B18" value="1"> Jarang</label>
+                        <label class="radio-option"><input type="radio" name="B18" value="2"> Kadang-kadang</label>
+                        <label class="radio-option"><input type="radio" name="B18" value="3"> Sering</label>
+                        <label class="radio-option"><input type="radio" name="B18" value="4"> Sangat Sering</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button mt-8">Hitung Skor</button>
+        </form>
+
+        <div id="result" class="result-section hidden">
+            <h2 class="text-2xl font-bold mb-4">Hasil Kuesioner ASRS v1.1</h2>
+            <p class="text-lg mb-2">Skor Total Anda: <span id="totalScore" class="font-semibold"></span></p>
+            <p class="text-lg mb-2">Jumlah Jawaban Positif Bagian A: <span id="partAPositiveCount" class="font-semibold"></span></p>
+            <p class="text-lg">Interpretasi: <span id="interpretation" class="font-semibold"></span></p>
+        </div>
+
+        <div class="disclaimer">
+            <p class="font-bold">Penting:</p>
+            <p>Kuesioner ini adalah alat skrining mandiri dan bukan alat diagnostik. Hasil dari kuesioner ini tidak dapat digunakan untuk mendiagnosis ADHD. Jika Anda memiliki kekhawatiran tentang gejala yang Anda alami, sangat disarankan untuk berkonsultasi dengan profesional kesehatan mental (misalnya, psikiater atau psikolog) untuk evaluasi dan diagnosis yang akurat.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('asrsForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let totalScore = 0;
+            let partAPositiveCount = 0;
+            let allAnswered = true;
+
+            // Get all radio buttons
+            const radioButtons = document.querySelectorAll('input[type="radio"]:checked');
+
+            // Check if all questions are answered
+            const allQuestionNames = new Set();
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                allQuestionNames.add(radio.name);
+            });
+
+            if (radioButtons.length !== allQuestionNames.size) {
+                allAnswered = false;
+            }
+
+            if (!allAnswered) {
+                alert('Harap jawab semua pertanyaan sebelum menghitung skor.');
+                return;
+            }
+
+            radioButtons.forEach(radio => {
+                const score = parseInt(radio.value);
+                const questionName = radio.name;
+
+                totalScore += score;
+
+                // Check for Part A positive responses (score 2, 3, or 4)
+                if (questionName.startsWith('A') && score >= 2) {
+                    partAPositiveCount++;
+                }
+            });
+
+            // Interpret results
+            let interpretationText = '';
+            if (partAPositiveCount >= 4) {
+                interpretationText = 'Berdasarkan jawaban Anda pada Bagian A, terdapat indikasi kuat kemungkinan ADHD pada orang dewasa. Sangat disarankan untuk mencari evaluasi lebih lanjut dari profesional kesehatan mental.';
+            } else {
+                interpretationText = 'Berdasarkan jawaban Anda pada Bagian A, kemungkinan ADHD pada orang dewasa tidak terlalu tinggi. Namun, jika Anda masih memiliki kekhawatiran tentang gejala yang Anda alami, konsultasi dengan profesional kesehatan mental tetap dianjurkan.';
+            }
+
+            // Display results
+            document.getElementById('totalScore').textContent = totalScore;
+            document.getElementById('partAPositiveCount').textContent = partAPositiveCount;
+            document.getElementById('interpretation').textContent = interpretationText;
+            document.getElementById('result').classList.remove('hidden');
+
+            // Scroll to results
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
